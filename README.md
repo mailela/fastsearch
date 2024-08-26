@@ -69,7 +69,7 @@ fastsearch 一个golang实现的全文检索引擎，支持持久化和单机亿
 
 + 编译
 
-> 直接下载 [可执行文件](https://gitee.com/rachel_os/fastsearch/fastsearch/releases) 可以不用编译，省去这一步。
+> 直接下载 [可执行文件](https://gitee.com/rachel_os/fastsearch/releases) 可以不用编译，省去这一步。
 
 ```shell
 go get && go build
