@@ -1,0 +1,13 @@
+.vscode
+fastsearch
+/fastsearch
+/tmp/
+/index/
+/.idea/
+/dist/
+/*/*.bin
+/cache
+/tests/index
+/data/
+/vendor
+*.exe

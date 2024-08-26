@@ -1,0 +1,17 @@
+{
+  "name": "gather",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node app.js",
+    "build": "pkg -t node14-win-x64 app.js"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "crypto-js": "^4.2.0",
+    "gather": "file:",
+    "js-yaml": "^4.1.0",
+    "mysql2": "^3.11.0",
+    "yargs": "^17.7.2"
+  }
+}

@@ -1,0 +1,41 @@
+#数据源配置
+database:
+  host: <host>
+  port: 3306
+  user: <user>
+  password: <password>
+  database: <database>
+
+
+# debug: true
+target:
+  api: [api_url]
+  # api: http://127.0.0.1:5679/api
+  db: site{--siteid}
+  username: <username>
+  password: <password>
+  cmd:  'node app.js --file={file} --source={source}'
+
+
+#数据来源
+source:
+  table: "cst_document_news_{--siteid}"
+  where: "DocumentNewsId>0"
+  page: 100
+  map:
+    key: "{SiteId}-{ChannelId}-{DocumentNewsId}"
+    title: "{DocumentNewsTitle}"
+    text: "{DocumentNewsTitle}{DocumentNewsContent}"
+    flag: "{SiteId}"
+    tags: "{DocumentNewsTag}" 
+    state: "{State}"
+    #状态当为30时， 才进行数据同步,其它的状态就删除索引
+    state_flag: "30"
+  # 字段映射
+    document: 
+      ChannelId: "ChannelId"
+      DocumentNewsContent: "DocumentNewsContent"
+      DocumentNewsId: "DocumentNewsId"
+      DocumentNewsTitle: "DocumentNewsTitle"
+      DocumentNewsUrl: "DocumentNewsUrl"
+      SiteId: "SiteId" 
