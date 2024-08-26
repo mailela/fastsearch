@@ -8,7 +8,7 @@
               <el-icon>
                 <coin color="rgb(105, 192, 255)" />
               </el-icon>
-              数据库列表
+              索引库列表
             </div>
             <div>
               <el-button type="text" icon="plus" @click="createDB()">创建</el-button>

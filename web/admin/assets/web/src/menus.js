@@ -5,7 +5,7 @@ const menus = [
     path: "/",
     name: "dashboard",
     icon: Coin,
-    label: "数据库",
+    label: "索引库",
     color: "rgb(105, 192, 255)",
     component: () => import("./views/dashboard.vue"),
   },
