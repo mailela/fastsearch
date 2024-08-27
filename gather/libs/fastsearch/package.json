@@ -1,0 +1,21 @@
+{
+  "name": "fastsearch",
+  "version": "1.1.0",
+  "description": "fastsearch是一个golang实现的全文检索引擎",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo successfully"
+  },
+  "keywords": [
+    "全文检索",
+    "fastsearch",
+    "fastsearch sdk"
+  ],
+  "author": "Rachel",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "fastsearch": "file:",
+    "gofound": "file:"
+  }
+}
