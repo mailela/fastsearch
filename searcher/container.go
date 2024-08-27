@@ -101,6 +101,14 @@ func (c *Container) GetDataBases() map[string]*Engine {
 	}
 	return c.engines
 }
+func (c *Container) CheckDataBase(key string) bool {
+	for _, engine := range c.engines {
+		if engine.DatabaseName == key {
+			return true
+		}
+	}
+	return false
+}
 
 func (c *Container) GetDataBaseNumber() int {
 	return len(c.engines)

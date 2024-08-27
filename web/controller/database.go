@@ -15,6 +15,15 @@ func DatabaseDrop(c *gin.Context) {
 	}
 	ResponseSuccessWithData(c, "删除成功")
 }
+func CheckExistsDB() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		if is_Exists := srv.Database.Container.CheckDataBase(c.Query("database")); is_Exists == false {
+			ResponseErrorWithMsg(c, "database not exists")
+			return
+		}
+		c.Next()
+	}
+}
 
 // DatabaseCreate 创建数据库
 func DatabaseCreate(c *gin.Context) {

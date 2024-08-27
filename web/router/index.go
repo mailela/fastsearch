@@ -10,6 +10,7 @@ import (
 func InitIndexRouter(Router *gin.RouterGroup) {
 
 	indexRouter := Router.Group("index")
+	indexRouter.Use(controller.CheckExistsDB())
 	{
 		indexRouter.POST("", controller.AddIndex)           // 添加单条索引
 		indexRouter.POST("batch", controller.BatchAddIndex) // 批量添加索引

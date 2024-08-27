@@ -41,9 +41,12 @@ func SetupRouter() *gin.Engine {
 		)
 		log.Println("Enable Auth:", global.CONFIG.Auth)
 	}
-
+	handlers = append(handlers, func(c *gin.Context) {
+		c.Header("Server", "FastSearch")
+	})
 	// 告诉服务.js文件的MIME类型
 	err := mime.AddExtensionType(".js", "application/javascript")
+	mime.AddExtensionType(".css", "text/css")
 	// 如果存在错误则需要马上抛出
 	if err != nil {
 		panic("添加扩展类型 mime 错误，错误原因：" + err.Error())
@@ -54,6 +57,7 @@ func SetupRouter() *gin.Engine {
 		admin.Register(router, handlers...)
 		log.Printf("Admin Url: \t http://%v/admin", global.CONFIG.Addr)
 	}
+
 	// 分组管理 中间件管理
 	router.Use(middleware.Cors(), middleware.Exception())
 	group := router.Group("/api", handlers...)

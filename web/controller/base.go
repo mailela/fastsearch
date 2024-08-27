@@ -12,6 +12,7 @@ func Welcome(c *gin.Context) {
 
 // Query 查询
 func Query(c *gin.Context) {
+
 	var request = &model.SearchRequest{
 		Database: c.Query("database"),
 	}
@@ -19,6 +20,11 @@ func Query(c *gin.Context) {
 		ResponseErrorWithMsg(c, err.Error())
 		return
 	}
+	if srv.Database.Container.CheckDataBase(request.Database) == false {
+		ResponseErrorWithMsg(c, "数据库不存在")
+		return
+	}
+
 	//调用搜索
 	r, err := srv.Base.Query(request)
 	if err != nil {
